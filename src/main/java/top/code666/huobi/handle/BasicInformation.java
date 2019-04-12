@@ -1,7 +1,7 @@
 package top.code666.huobi.handle;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import top.code666.huobi.common.entity.ApiResponse;
+import top.code666.huobi.common.entity.BaseApiResponse;
 import top.code666.huobi.common.entity.baseinfo.Symbol;
 import top.code666.huobi.common.utils.ConnectManager;
 
@@ -24,8 +24,8 @@ public class BasicInformation {
      * @return java.util.List<top.code666.huobi.common.entity.baseinfo.Symbol>
     **/
     public List<Symbol> getAllSymbol(){
-        ApiResponse<List<Symbol>> resp =
-                cm.get("/v1/common/symbols", null, new TypeReference<ApiResponse<List<Symbol>>>() {
+        BaseApiResponse<List<Symbol>> resp =
+                cm.get("/v1/common/symbols", null, new TypeReference<BaseApiResponse<List<Symbol>>>() {
                 });
         return resp.checkAndReturn();
     }
@@ -38,8 +38,8 @@ public class BasicInformation {
      * @return java.util.List<java.lang.String>
     **/
     public List<String> getAllBi(){
-        ApiResponse<List<String>> resp =
-                cm.get("/v1/common/currencys", null, new TypeReference<ApiResponse<List<String>>>() {
+        BaseApiResponse<List<String>> resp =
+                cm.get("/v1/common/currencys", null, new TypeReference<BaseApiResponse<List<String>>>() {
                 });
         return resp.checkAndReturn();
     }
@@ -52,8 +52,8 @@ public class BasicInformation {
      * @return java.lang.String
     **/
     public String getHuoBiNow(){
-        ApiResponse<String> resp =
-                cm.get("/v1/common/timestamp", null, new TypeReference<ApiResponse<String>>() {
+        BaseApiResponse<String> resp =
+                cm.get("/v1/common/timestamp", null, new TypeReference<BaseApiResponse<String>>() {
                 });
         return resp.checkAndReturn();
     }

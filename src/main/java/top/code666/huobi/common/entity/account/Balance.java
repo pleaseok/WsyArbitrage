@@ -3,7 +3,7 @@ package top.code666.huobi.common.entity.account;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
+import java.util.List;
 
 /**
  * @ClassName Balance
@@ -18,6 +18,7 @@ public class Balance implements Serializable {
     private long id; // 账户ID
     private String state; // 账户状态 working \ lock
     private String type; // 账户类型 spot\margin\otc\point
-    private Array list; // 子账号数组
+    private List<BalanceOfCurrency> list; // 子账号数组
+    private String userId; //用户id
 
 }
