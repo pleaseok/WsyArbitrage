@@ -12,7 +12,7 @@ public class ApiClient {
     public static final String HUOBI_ACCESSKEY_SECRET = "8b8c1a06-2bdc1515-8582ae5d-0c422";
     public static final String HUOBI_ACCESS_PWD = "wivTWAFTryMEzF5";
 
-    public static final int CONN_TIMEOUT = 5; // 连接超时
-    public static final int READ_TIMEOUT = 5; // 读取超时
-    public static final int WRITE_TIMEOUT = 5; // 写入超时
+    public static final int CONN_TIMEOUT = 5000; // 连接超时
+    public static final int READ_TIMEOUT = 5000; // 读取超时
+    public static final int WRITE_TIMEOUT = 5000; // 写入超时
 }

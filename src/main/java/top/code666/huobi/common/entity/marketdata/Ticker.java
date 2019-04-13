@@ -13,12 +13,12 @@ import java.io.Serializable;
 @Data
 public class Ticker implements Serializable {
     private static final long serialVersionUID = -3917769210504386252L;
-    private int id;
+    private long id;
     private Object bid; // 当前的最高卖价[price,quote volume]
     private Object ask; // 当前的最低买价[price,quote volume]
 
     private float amount; // 以基础币种计量的交易量
-    private int count; // 交易次数
+    private long count; // 交易次数
     private float open; // 本阶段开盘价
     private float close; // 本阶段收盘价
     private float low; // 本阶段最低价

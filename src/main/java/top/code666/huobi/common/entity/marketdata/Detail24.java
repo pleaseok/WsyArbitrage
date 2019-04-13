@@ -14,11 +14,11 @@ import java.io.Serializable;
 @Data
 public class Detail24 implements Serializable {
     private static final long serialVersionUID = -3791925736658784491L;
-    private int id; // 响应id
-    private int version; // 内部数据
+    private long id; // 响应id
+    private long version; // 内部数据
 
     private float amount; // 以基础币种计量的交易量
-    private int count; // 交易次数
+    private long count; // 交易次数
     private float open; // 本阶段开盘价
     private float close; // 本阶段收盘价
     private float low; // 本阶段最低价

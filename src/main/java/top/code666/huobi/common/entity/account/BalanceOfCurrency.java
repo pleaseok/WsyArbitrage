@@ -2,6 +2,8 @@ package top.code666.huobi.common.entity.account;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @ClassName BalanceOfCurrency
  * @Description 币种的余额
@@ -9,7 +11,8 @@ import lombok.Data;
  * @Date 2019/4/13 1:00
  **/
 @Data
-public class BalanceOfCurrency {
+public class BalanceOfCurrency implements Serializable {
+    private static final long serialVersionUID = 2023390729708615177L;
     private String currency; // 币种
     private String balance; // 余额
     private String type; // 类型  trade: 交易余额，frozen: 冻结余额

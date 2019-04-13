@@ -1,6 +1,5 @@
-package top.code666.huobi.handle;
-
 import com.fasterxml.jackson.core.type.TypeReference;
+import org.junit.Test;
 import top.code666.huobi.common.entity.BaseApiResponse;
 import top.code666.huobi.common.entity.account.AccountInfo;
 import top.code666.huobi.common.entity.account.Balance;
@@ -9,13 +8,13 @@ import top.code666.huobi.common.utils.ConnectManager;
 import java.util.List;
 
 /**
- * @ClassName Account
- * @Description 账户信息的相关API操作
+ * @ClassName HUOBITest_account
+ * @Description
  * @Author Sean
- * @Date 2019/4/9 21:28
+ * @Date 2019/4/13 18:29
  **/
-public class Account {
-    private ConnectManager cm = ConnectManager.getInstant();
+public class HUOBITest_account {
+    ConnectManager cm = ConnectManager.getInstant();
 
     /**
      * @Author Sean
@@ -23,25 +22,28 @@ public class Account {
      * @Date 0:33 2019/4/11
      * @Param []
      * @return java.util.List<top.code666.huobi.common.entity.account.AccountInfo>
-    **/
-    public List<AccountInfo> getInfo(){
+     **/
+    @Test
+    public void getInfo(){
         BaseApiResponse<List<AccountInfo>> resp =
                 cm.get("/v1/account/accounts", null, new TypeReference<BaseApiResponse<List<AccountInfo>>>() {
                 });
-        return resp.checkAndReturn();
+        System.out.println(resp.checkAndReturn());
     }
 
     /**
      * @Author Sean
      * @Description 查询账户的余额
      * @Date 0:58 2019/4/13
-     * @Param [] accountId取值 /v1/account/accounts
+     * @Param []
      * @return java.util.List<top.code666.huobi.common.entity.account.Balance>
-    **/
-    public Balance getBlance(String accountId){
+     **/
+    @Test
+    public void getBlance(){
+        String accountId = "6782358";
         BaseApiResponse<Balance> resp =
                 cm.get("/v1/account/accounts/"+ accountId +"/balance", null, new TypeReference<BaseApiResponse<Balance>>() {
                 });
-        return resp.checkAndReturn();
+        System.out.println(resp.checkAndReturn());
     }
 }
