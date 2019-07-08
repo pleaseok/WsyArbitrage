@@ -19,7 +19,7 @@ public class Account {
 
     /**
      * @Author Sean
-     * @Description 查询当前用户的所有账户ID及其相关信息 - 未测试
+     * @Description 查询当前用户的所有账户ID及其相关信息
      * @Date 0:33 2019/4/11
      * @Param []
      * @return java.util.List<top.code666.huobi.common.entity.account.AccountInfo>

@@ -18,8 +18,8 @@ import java.util.Map;
  * @Date 2019/4/9 21:29
  **/
 public class Wallet {
-    ConnectManager cm = ConnectManager.getInstant();
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    private ConnectManager cm = ConnectManager.getInstant();
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /**
      * @return java.lang.String
@@ -126,9 +126,9 @@ public class Wallet {
      * @Description 此接口发送批量撤销订单的请求
      * @Date 0:21 2019/4/14
      * @Param [accountId, symbol, side, size]
-     * @return top.code666.huobi.common.entity.wallet.BatchCancelOpenOrdersOut
+     * @return top.code666.huobi.common.entity.wallet.batchCancelOpenOrders
     **/
-    public BatchCancelOpenOrdersOut BatchCancelOpenOrders(String accountId,String symbol,String side,String size){
+    public BatchCancelOpenOrdersOut batchCancelOpenOrders(String accountId,String symbol,String side,String size){
         Map<String,String> params = new HashMap<>();
         params.put("account-id",accountId); // 账户ID
         params.put("symbol",symbol); // 交易对  |  单个交易对字符串，缺省将返回所有符合条件尚未成交订单

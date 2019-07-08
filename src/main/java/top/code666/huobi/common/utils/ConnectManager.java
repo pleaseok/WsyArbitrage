@@ -24,9 +24,9 @@ import java.util.stream.Collectors;
  * @Date 2019/4/9 21:41
  **/
 public class ConnectManager {
-    public final static String API_HOST = getHost();
-    public final static MediaType JSON = MediaType.parse("application/json");
-    public final static OkHttpClient client = createOkHttpClient();
+    private final static String API_HOST = getHost();
+    private final static MediaType JSON = MediaType.parse("application/json");
+    private final static OkHttpClient client = createOkHttpClient();
     private static ConnectManager getConnect;
 
     private ConnectManager(){}
@@ -50,7 +50,7 @@ public class ConnectManager {
     }
 
     // call api by endpoint.
-    public <T> T call(String method, String uri, Object object, Map<String, String> params,
+    private <T> T call(String method, String uri, Object object, Map<String, String> params,
                TypeReference<T> ref) {
         ApiSignature sign = new ApiSignature();
         sign.createSignature(ApiClient.HUOBI_ACCESSKEY_ID,ApiClient.HUOBI_ACCESSKEY_SECRET,method,API_HOST,uri,params);
@@ -75,13 +75,13 @@ public class ConnectManager {
     }
 
     // Encode as "a=1&b=%20&c=&d=AAA"
-    String toQueryString(Map<String, String> params) {
+    private String toQueryString(Map<String, String> params) {
         return String.join("&", params.entrySet().stream().map((entry) -> {
             return entry.getKey() + "=" + ApiSignature.urlEncode(entry.getValue());
         }).collect(Collectors.toList()));
     }
 
-    String authData() {
+    private String authData() {
         MessageDigest md = null;
         try {
             md = MessageDigest.getInstance("MD5");
